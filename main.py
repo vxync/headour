@@ -67,7 +67,7 @@ def print_clock():
                 break
         
         if current_period is None:
-            current_period = "waiting for class..."
+            current_period = "waiting..."
 
         # Imprime o relógio na tela com cores
         print(f"{Fore.WHITE}{current_time_str} {Fore.WHITE}| {Fore.GREEN}{time_until_end_of_period} remaining {Fore.WHITE}| {Fore.YELLOW}{current_period}")
