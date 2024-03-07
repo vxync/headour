@@ -60,17 +60,17 @@ def print_clock():
         
         # Define o período atual
         current_period = None
-        periods = ["1º período", "2º período", "3º período", "Recreio", "4º período", "5º período"]
+        periods = ["1º period", "2º period", "3º period", "interval", "4º period", "5º period"]
         for i, (period_hour, period_minute) in enumerate([(7, 20), (8, 10), (9, 0), (9, 50), (11, 0), (11, 50)]):
             if current_hour < period_hour or (current_hour == period_hour and current_minute < period_minute):
                 current_period = periods[i]
                 break
         
         if current_period is None:
-            current_period = "Fora de aula"
+            current_period = "waiting for class..."
 
         # Imprime o relógio na tela com cores
-        print(f"{Fore.WHITE}{current_time_str} | {Fore.GREEN}{time_until_end_of_period} restantes {Fore.WHITE}| {Fore.YELLOW}{current_period}")
+        print(f"{Fore.WHITE}{current_time_str} {Fore.WHITE}| {Fore.GREEN}{time_until_end_of_period} remaining {Fore.WHITE}| {Fore.YELLOW}{current_period}")
 
         # Aguarda 1 segundo antes de atualizar o relógio
         time.sleep(1)
