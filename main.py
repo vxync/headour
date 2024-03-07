@@ -61,7 +61,7 @@ def print_clock():
         # Define o período atual
         current_period = None
         periods = ["1º período", "2º período", "3º período", "Recreio", "4º período", "5º período"]
-        for i, (period_hour, period_minute) in enumerate([[(7, 20), (8, 10), (9, 0), (9, 50), (11, 0), (11, 50)]]):
+        for i, (period_hour, period_minute) in enumerate([(7, 20), (8, 10), (9, 0), (9, 50), (11, 0), (11, 50)]):
             if current_hour < period_hour or (current_hour == period_hour and current_minute < period_minute):
                 current_period = periods[i]
                 break
