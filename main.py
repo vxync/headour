@@ -2,6 +2,7 @@ import time
 import os
 import sys
 from colorama import init, Fore
+from pyfiglet import Figlet
 
 def clear_screen():
     # Limpa a tela do console
@@ -40,7 +41,10 @@ def calculate_time_until_end_of_period(current_hour, current_minute, current_sec
     return time_until_end_of_period_str
 
 def print_clock():
+    f = Figlet(font='slant')
     clear_screen()
+    print(f.renderText(f'Headour'))
+    
     while True:
         # Obtém o tempo atual
         current_time = time.localtime()
@@ -62,7 +66,6 @@ def print_clock():
                 current_period = periods[i]
                 break
         
-
 
         if current_period is None:
             current_period = "waiting..."
