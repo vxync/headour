@@ -70,7 +70,7 @@ def print_clock():
             current_period = "Fora de aula"
 
         # Imprime o relógio na tela com cores
-        print(f"{Fore.WHITE}{current_time_str} | {Fore.GREEN}{time_until_end_of_period} restantes | {Fore.YELLOW}{current_period}")
+        print(f"{Fore.WHITE}{current_time_str} | {Fore.GREEN}{time_until_end_of_period} restantes {Fore.WHITE}| {Fore.YELLOW}{current_period}")
 
         # Aguarda 1 segundo antes de atualizar o relógio
         time.sleep(1)
