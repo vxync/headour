@@ -1,9 +1,7 @@
-import os
 import time
+import os
+import sys
 from colorama import init, Fore
-
-# Inicializa a biblioteca colorama
-init()
 
 def clear_screen():
     # Limpa a tela do console
@@ -42,10 +40,8 @@ def calculate_time_until_end_of_period(current_hour, current_minute, current_sec
     return time_until_end_of_period_str
 
 def print_clock():
+    clear_screen()
     while True:
-        # Limpa a tela antes de imprimir o novo relógio
-        clear_screen()
-
         # Obtém o tempo atual
         current_time = time.localtime()
         current_hour = current_time.tm_hour
@@ -60,17 +56,21 @@ def print_clock():
         
         # Define o período atual
         current_period = None
-        periods = ["1º period", "2º period", "3º period", "interval", "4º period", "5º period"]
+        periods = ["1st period", "2nd period", "3rd period", "interval", "4th period", "5th period"]
         for i, (period_hour, period_minute) in enumerate([(7, 20), (8, 10), (9, 0), (9, 50), (11, 0), (11, 50)]):
             if current_hour < period_hour or (current_hour == period_hour and current_minute < period_minute):
                 current_period = periods[i]
                 break
         
+
+
         if current_period is None:
             current_period = "waiting..."
 
-        # Imprime o relógio na tela com cores
-        print(f"{Fore.WHITE}{current_time_str} {Fore.WHITE}| {Fore.GREEN}{time_until_end_of_period} remaining {Fore.WHITE}| {Fore.YELLOW}{current_period}")
+        sys.stdout.write(f"\r{Fore.WHITE}{current_time_str} {Fore.WHITE}| {Fore.GREEN}{time_until_end_of_period} remaining {Fore.WHITE}| {Fore.YELLOW}{current_period}")
+        sys.stdout.flush()
+        
+
 
         # Aguarda 1 segundo antes de atualizar o relógio
         time.sleep(1)
